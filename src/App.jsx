@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import Button from 'react-bootstrap/Button';
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaSquareInstagram } from "react-icons/fa6";
 
 const quotes=["The greatest glory in living lies not in never falling, but in rising every time we fall.",
       "The way to get started is to quit talking and begin doing.",
@@ -36,57 +37,56 @@ function App() {
     <style type="text/css">
     {`
       .container{
+        background-color: var(--main-color);  
+        transition: background-color 2s ease; 
         height:100vh;
         display:grid;
-        place-items:center; 
+        place-items:center;
       }
       #quote-box{
         background-color:white;
-        width:500px;
-        color:white;
         font-family:"Poppins";
         border-radius:5px;
-        margin-left:-13px; 
+        width:29rem;
       }
       #text{
-        padding:40px 60px;
+        padding:40px 30px;
         font-size:25px;
         color:var(--main-color);
-        transition: color 0.5s ease; 
+        transition: color 2s ease; 
       }
       #author{
-        margin-top:-40px;
+        margin-top:-45px;
         margin-bottom:30px;
-        padding-left:290px;
+        padding-left:60%;
         color:var(--main-color);
-        margin-right:25px;
-        transition: color 1s ease;
+        transition: color 2s ease;
       }
       #tweet-quote{
         font-size:40px;
-        color:white;
         padding-left:20px;
         margin-top:-20px;
-        float:left; 
+        float:left;
+        transition: background-color 2s ease; 
       }
       #new-quote{
         float:right;
-        margin-right:80px; 
+        margin-right:30px; 
         font-size:14px;
         color:white;
         background-color:var(--main-color);
-        margin-top:-7px;
-        tansition:all 10s ease;
-        transition: background-color 1s ease;
+        margin-top:-4px;
+        transition: background-color 2s ease;
         border:none;
+        border-radius:5px;
       }
-      .social{
-         margin-left:60px;
-         font-color:green;    
+      #react-icon1{
+        font-size:34px;
+        color:black;
       }
-      #react-icon{
-        color:var(--main-color);
-        transition: color 1s ease;
+      #react-icon2{
+        font-size:34px;
+        color:red;
       }
       #footer{
         margin-top:100px;
@@ -97,6 +97,20 @@ function App() {
         padding-top:20px;
         transition: background-color 2s ease;
       }
+      @media(max-width:667px){
+        .social{
+          margin-left:10px;
+       }
+       #quote-box{
+        width:100%;
+      }
+      #text{
+        font-size:16px;
+      }
+      #author{
+        font-size:8px;
+      }
+      }
     `}
     </style>
    
@@ -105,7 +119,8 @@ function App() {
         <div id="text" ><p>{quotes[selected]}</p></div>
         <div id="author"><p>~{authors[selected]}</p></div>
         <div className="social">
-          <a id="tweet-quote" href="https://twitter.com/intent/tweet" target="_blank" ><FaSquareXTwitter id="react-icon"/></a>
+          <a id="tweet-quote" href="https://twitter.com/intent/tweet" target="_blank" ><FaSquareXTwitter id="react-icon1"/></a>
+          <a id="tweet-quote" href="https://instagram.com/" target="_blank" ><FaSquareInstagram id="react-icon2"/></a>
           <Button id="new-quote" className="btn btn-info" onClick={getRandomInt}>New Quote</Button>
         </div>
         <div id="footer">By Dharmender</div>
